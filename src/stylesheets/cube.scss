@@ -1,0 +1,70 @@
+@import 'compass/css3';
+
+.container {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    border: 1px solid #ccc;
+
+    margin: 15px auto 35px;
+
+    @include perspective( 1000px );
+
+    #cube {
+        position: absolute;
+        width: 100%;
+        height: 100%;       
+        @include transform-style( preserve-3d );
+
+        figure {
+
+            width: 196px;
+            height: 196px;
+            display: block;
+            position: absolute;
+            margin: 0;
+            border: 2px solid black;
+
+            color: white;
+            line-height: 200px;
+            font-size: 125px;
+            text-align: center;
+
+            $faces: front back right left top bottom;
+            $z-offset: 100px;
+
+            @each $face in $faces {
+                $i: index( $faces, $face );
+
+                &.#{$face} {
+                    background-color: hsla(($i*60), 100%, 50%, 0.7);
+                    //@include transform($z-offset);
+                }            
+            }
+
+            &.front {
+                @include transform( rotateY( 0deg) translateZ( $z-offset) );
+            }
+
+            &.back {
+                @include transform( rotateX( 180deg) translateZ( $z-offset) );
+            }
+
+            &.right {
+                @include transform( rotateY( 90deg ) translateZ( $z-offset) ); 
+            }
+
+            &.left {
+                @include transform( rotateY( -90deg) translateZ( $z-offset) );
+            }
+
+            &.top {
+                @include transform (rotateX( 90deg) translateZ( $z-offset) );
+            }
+
+            &.bottom {
+                @include transform (rotateX( -90deg) translateZ( $z-offset) );
+            }
+        }
+    }
+}

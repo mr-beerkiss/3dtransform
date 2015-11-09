@@ -1,0 +1,10 @@
+include ./templates/boiler-plate.jade
+
+block scripts
+    link(rel="stylesheet" href="stylesheets/cube.css")
+
+block content
+    section.container
+        #cube
+            each value, index in ['front', 'back', 'right', 'left', 'top', 'bottom']
+                figure(class="#{value}")= index

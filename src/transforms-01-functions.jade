@@ -1,0 +1,10 @@
+extends ./templates/boiler-plate.jade
+
+block scripts
+    link(rel="stylesheet" href="stylesheets/transforms-01-functions.css")
+
+block content
+    h1 Transform Functions
+    each value, key in { 'zfar':'translateZ(-200px)', 'znear':'translateZ(200px)', 'rotx':'rotateX(45deg)', 'roty':'rotateY(45deg)', 'rotz':'rotateZ(45deg)' }
+        section.container
+            figure(class="#{key}")= value

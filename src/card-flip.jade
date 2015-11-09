@@ -1,0 +1,28 @@
+extends ./templates/boiler-plate.jade
+
+block scripts
+    link(rel="stylesheet" href="stylesheets/card-flip.css")
+    script.
+        var cardEl;
+        var isFlipped = false;
+        function flipCard() {
+            console.debug('Flip the card!');
+            if ( !cardEl ) {
+                cardEl = document.querySelector('#card');
+            }
+
+            if ( isFlipped ) {
+                cardEl.classList.remove('flipped');
+            } else {
+                cardEl.classList.add('flipped');
+            }
+
+            isFlipped = !isFlipped;
+        }
+
+block content
+    section.container
+        #card
+            figure.front 1
+            figure.back 2
+    button.flip-button(onclick="flipCard()") Flip

@@ -1,0 +1,10 @@
+extends ./templates/boiler-plate.jade
+
+block scripts
+    link(rel="stylesheet" href="stylesheets/perspective-03.css")
+
+block content
+    section.container
+      #cube.spinning
+        each val, index in ['front', 'back', 'right', 'left', 'top', 'bottom']
+          figure(class="#{val}")= index

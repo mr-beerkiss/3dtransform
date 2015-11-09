@@ -1,0 +1,45 @@
+@import "compass/css3";
+
+.container {
+    width: 200px;
+    height: 200px;
+    margin: 15px auto 35px;
+    border: 1px solid #ccc;
+    @include perspective( 1000px );
+    position: relative;
+
+    figure {
+        height: 100%;
+        width: 100%;
+        background: hsla( 0, 100%, 50%, 0.7);
+        display: block;
+        margin: 0;
+        color: white;
+        font-weight: bold;
+        font-family: sans-serif;
+        position: absolute;
+
+        &.zfar {
+            @include transform( translateZ( -200px) );
+        }
+
+        &.znear {
+            @include transform( translateZ( 200px) );       
+        }
+
+        &.rotx {
+            @include transform( rotateX( 45deg));
+        }
+
+        &.roty {
+            @include transform( rotateY( 45deg ));
+        }
+
+        &.rotz {
+            @include transform( rotateZ( 45deg ));
+        }
+    }
+
+
+}
+
